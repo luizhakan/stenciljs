@@ -18,5 +18,10 @@
     "jest-cli": "^27.4.5",
     "puppeteer": "^10.0.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@types/babel__traverse": "^7.17.1",
+    "@types/node": "^17.0.41",
+    "typescript": "^5.5.4"
+  }
 }
