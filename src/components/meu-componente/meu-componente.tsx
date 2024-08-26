@@ -1,21 +1,53 @@
-import { Component, Prop, h } from '@stencil/core';
+import { Component, Listen, State, h } from '@stencil/core';
 
 @Component({
   tag: 'meu-componente',
   styleUrl: 'meu-componente.css',
-  shadow: true
+  shadow: true,
 })
 export class MeuComponente {
-  @Prop() primeiro: string;
-  @Prop() segundo: string;
-  @Prop() terceiro: string;
-  @Prop() color: string = 'blue';
+  timer: number;
+  @State() currentTime: number = Date.now();
+  @State() contador = 0;
 
-  private getText(): string {
-    return `${this.primeiro} ${this.segundo} ${this.terceiro}`;
+  @Listen('click')
+  onClick() {
+    this.contador++;
+  }
+
+  onClick2() {
+    location.reload();
+  }
+
+  connectedCallback() {
+    this.timer = window.setInterval(() => {
+      this.currentTime = Date.now();
+    }, 999);
+  }
+
+  disconnectedCallback() {
+    window.clearInterval(this.timer);
   }
 
   render() {
-    return <h1 style={{ color: this.color }}>{this.getText()}</h1>;
+    const time = new Date(this.currentTime).toLocaleTimeString();
+
+    return (
+      <div>
+        <p>
+          Hora: <span>{time}</span>
+        </p>
+
+        <p>
+          Contador: <span>{this.contador}</span>
+        </p>
+
+        <button onClick={this.onClick}>Incrementar</button>
+
+        <div>
+          <button onClick={this.onClick2}>Reiniciar</button>
+        </div>
+      </div>
+    );
   }
 }

@@ -9,10 +9,6 @@ export namespace Components {
     interface AppRoot {
     }
     interface MeuComponente {
-        "color": string;
-        "primeiro": string;
-        "segundo": string;
-        "terceiro": string;
     }
 }
 declare global {
@@ -37,10 +33,6 @@ declare namespace LocalJSX {
     interface AppRoot {
     }
     interface MeuComponente {
-        "color"?: string;
-        "primeiro"?: string;
-        "segundo"?: string;
-        "terceiro"?: string;
     }
     interface IntrinsicElements {
         "app-root": AppRoot;

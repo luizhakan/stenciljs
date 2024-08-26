@@ -15,7 +15,7 @@ export class AppRoot {
 
         <main>
           <slot>
-            <meu-componente primeiro="Primeiro" segundo="Segundo" terceiro="Terceiro" color='red'></meu-componente>
+            <meu-componente></meu-componente>
           </slot>
         </main>
       </div>
