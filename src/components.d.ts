@@ -9,6 +9,7 @@ export namespace Components {
     interface AppRoot {
     }
     interface MeuComponente {
+        "activated": boolean;
     }
 }
 declare global {
@@ -33,6 +34,7 @@ declare namespace LocalJSX {
     interface AppRoot {
     }
     interface MeuComponente {
+        "activated"?: boolean;
     }
     interface IntrinsicElements {
         "app-root": AppRoot;
